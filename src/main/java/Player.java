@@ -1,4 +1,5 @@
-public interface Player{
+public interface Player extends Slotable{
 
+    
 
 }

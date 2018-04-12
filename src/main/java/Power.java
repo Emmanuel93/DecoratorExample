@@ -1,3 +1,3 @@
-public interface Power {
-    
+public interface Power extends Slotable{
+
 }
