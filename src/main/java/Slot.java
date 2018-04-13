@@ -1,17 +1,15 @@
-import java.util.ArrayList;
 import java.util.List;
 
 public class Slot {
 
-    List<Slotable> gameelements = new ArrayList<>();
+    private List<Slotable> gameElements;
 
-
-    public void addElementSloteable(Slotable element){
-        this.gameelements.add(element);
-
+    public Slot(List<Slotable> gameElements){
+        this.gameElements = gameElements;
     }
 
-
-
+    public void addGameElement(Slotable gameElement){
+        this.gameElements.add(gameElement);
+    }
 
 }
