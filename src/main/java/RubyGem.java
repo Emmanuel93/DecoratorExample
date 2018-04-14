@@ -10,6 +10,6 @@ public class RubyGem extends AbstractGem {
 
     @Override
     public Integer getPower() {
-        return this.POWER + character.getPower();
+        return (this.POWER+ this.character.getPower())-getDamage();
     }
 }

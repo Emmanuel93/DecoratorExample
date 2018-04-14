@@ -3,22 +3,18 @@ public class Warrior extends AbstractCharacter {
 
     public static final Integer POWER = 4;
 
+    private Dice dice;
+
     public Warrior(String name){
        super(name);
     }
 
     @Override
-    public void atack(Character character) {
-        System.out.println("El warrior esta atacando!" + this.getPower());
-    }
-
-    @Override
-    public void move(Slot slot) {
-
-    }
-
-    @Override
-    public void takeAPower(Slot slot) {
+    public void fight(Character character) {
+        if(this.getPower()> character.getPower())
+            character.setDamage(this.getPower()-character.getPower());
+        if(character.getPower() > this.getPower())
+            this.setDamage(character.getPower()-this.getPower());
 
     }
 

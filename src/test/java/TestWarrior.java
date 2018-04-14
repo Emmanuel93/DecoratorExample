@@ -272,18 +272,26 @@ public class TestWarrior {
 
     @Test
     public void verifyFillBoard(){
-        Board obj = new GameBoard(10);
-
-        Character emmanuel = new Warrior("Emmanuel");
-
-        Character brandon = new Warrior("Brandon");
+        GameBoard board = new GameBoard(10);
 
         Dice dice = Dice.getInstance();
 
-        System.out.println(dice.showNumber());
+        Character emmanuel = new Warrior("Emmanuel");
+        emmanuel.setDice(dice);
 
+        Character brandon = new Warrior("Brandon");
 
-        System.out.println(obj);
+        Integer Movement = dice.showNumber();
+        System.out.println(board);
+        emmanuel = board.addCharacter(emmanuel,2);
+        System.out.println(board);
+        System.out.println("Emmanuel tiene de poder"+ emmanuel.getPower());
+        System.out.println("Emmanuel tiene de daño"+ emmanuel.getDamage());
+        brandon = board.addCharacter(brandon,2);
+        System.out.println("Brandon tiene de poder"+ brandon.getPower());
+        System.out.println("Brandon tiene de daño"+ brandon.getDamage());
+        System.out.println(board);
+
 
     }
 

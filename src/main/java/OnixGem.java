@@ -10,6 +10,6 @@ public class OnixGem extends AbstractGem {
 
     @Override
     public Integer getPower() {
-        return this.POWER + character.getPower();
+        return (this.POWER+ this.character.getPower())-getDamage();
     }
 }

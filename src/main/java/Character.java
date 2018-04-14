@@ -7,14 +7,20 @@
 
 public interface Character{
 
-    public void atack(Character character);
-
-    public void move(Slot slot);
-
-    public void takeAPower(Slot slot);
+    public void fight(Character character);
 
     public boolean isAlive();
 
     public Integer getPower();
+
+    public void setDice(Dice dice);
+
+    public Integer showNumberOfDice();
+
+    public String getName();
+
+    public void setDamage(Integer damage);
+
+    public Integer getDamage();
 
 }

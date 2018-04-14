@@ -10,6 +10,6 @@ public class ZaphireGem extends AbstractGem {
     }
     @Override
     public Integer getPower() {
-        return this.POWER+ this.character.getPower();
+        return (this.POWER+ this.character.getPower())-getDamage();
     }
 }

@@ -5,11 +5,11 @@ public class DiamondGem extends AbstractGem{
     public DiamondGem(){}
 
     public DiamondGem(Character character){
-       super(character);
+       super(character );
     }
 
     @Override
     public Integer getPower() {
-        return this.POWER + character.getPower();
+        return (this.POWER+ this.character.getPower())-getDamage();
     }
 }

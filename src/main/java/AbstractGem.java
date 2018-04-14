@@ -10,6 +10,10 @@ public abstract class AbstractGem implements Character{
         this.character = character;
     }
 
+    public void setDamage(Integer damage){
+        character.setDamage(damage);
+    }
+
     public abstract Integer getPower();
 
     @Override
@@ -17,20 +21,31 @@ public abstract class AbstractGem implements Character{
         return ""+this.getPower();
     }
 
-    public void atack(Character character){
-        throw  new UnsupportedOperationException("Esta es una gema no puede atacar");
-    };
-
-    public void move(Slot slot){
-        throw  new UnsupportedOperationException("Esta es una gema no puede mover");
+    @Override
+    public String getName() {
+       return character.getName();
     }
 
-    public void takeAPower(Slot slot){
-        throw  new UnsupportedOperationException("Esta es una gema no puede tomar poder");
+    public void fight(Character anotherCharacter){
+        this.character.fight(anotherCharacter);
+
+    };
+
+    @Override
+    public Integer getDamage() {
+        return character.getDamage();
     }
 
     public boolean isAlive(){
-        throw  new UnsupportedOperationException("Esta es una gema no se definio funcionalidad");
+        return this.character.isAlive();
+    }
+
+    public void setDice(Dice dice){
+        this.character.setDice(dice);
+    }
+
+    public Integer showNumberOfDice(){
+        return this.character.showNumberOfDice();
     }
 
 }

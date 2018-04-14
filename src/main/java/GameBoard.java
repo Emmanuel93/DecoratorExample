@@ -1,9 +1,8 @@
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 
-public class GameBoard implements Board {
+public class GameBoard {
 
 
     private List<Slot> slots;
@@ -22,7 +21,7 @@ public class GameBoard implements Board {
         fillBoard();
     }
 
-    public void fillBoard(){
+    private void fillBoard(){
 
         for (int i = 0; i <board.length ; i++) {
             List<Gems> gems = new ArrayList<>();
@@ -35,11 +34,17 @@ public class GameBoard implements Board {
 
     }
 
+    public Character addCharacter(Character character, Integer movement){
+        Character aux =  this.board[movement-1].addCharacter(character);
+        return aux;
+
+    }
+
     public String toString(){
 
         String result = "";
         for (int i = 0; i < board.length; i++) {
-                result += "G -" +board[i].getGems().size() +" P -"+ board[i].getCharacters().size()+"|";
+                result += "G" +board[i].getGems().size() +" P"+ board[i].getCharacters().size()+"|";
 
         }
 
