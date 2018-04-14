@@ -9,6 +9,10 @@ public abstract class AbstractGem implements Item{
         this.character = character;
     }
 
+    /*protected AbstractGem(Integer power){
+        this.power=power;
+    }*/
+
     public abstract Integer getPower();
 
 }
