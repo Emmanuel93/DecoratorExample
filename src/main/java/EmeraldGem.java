@@ -4,7 +4,7 @@ public class EmeraldGem extends AbstractGem{
 
     public EmeraldGem(){}
 
-    public EmeraldGem(Item character){
+    public EmeraldGem(Character character){
         super(character);
     }
     @Override

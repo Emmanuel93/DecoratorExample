@@ -4,7 +4,7 @@ public class DiamondGem extends AbstractGem{
 
     public DiamondGem(){}
 
-    public DiamondGem(Item character){
+    public DiamondGem(Character character){
        super(character);
     }
 

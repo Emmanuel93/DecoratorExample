@@ -1,8 +1,8 @@
 public class GemFactory {
 
-    public static Power buildGem(Gems type){
+    public static Character buildGem(Gems type){
 
-        Power gem;
+        Character gem;
 
         switch (type){
             case DIAMOND:

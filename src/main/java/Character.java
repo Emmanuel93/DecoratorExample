@@ -5,7 +5,7 @@
     @author Emmanuel Hernandez
 */
 
-public interface Character extends Slotable,Item{
+public interface Character{
 
     public void atack(Character character);
 
@@ -14,5 +14,7 @@ public interface Character extends Slotable,Item{
     public void takeAPower(Slot slot);
 
     public boolean isAlive();
+
+    public Integer getPower();
 
 }

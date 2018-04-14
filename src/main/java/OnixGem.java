@@ -4,7 +4,7 @@ public class OnixGem extends AbstractGem {
 
     public OnixGem(){}
 
-    public OnixGem(Item character){
+    public OnixGem(Character character){
         super(character);
     }
 

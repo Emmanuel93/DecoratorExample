@@ -5,7 +5,7 @@ import static junit.framework.TestCase.assertTrue;
 
 public class TestWarrior {
 
-    private Item warrior;
+    private Character warrior;
 
     public TestWarrior(){
         this.warrior = new Warrior("Emmanuel");
@@ -272,7 +272,7 @@ public class TestWarrior {
 
     @Test
     public void verifyFillBoard(){
-        Board obj = new GameBoard(5);
+        Board obj = new GameBoard(10);
         System.out.println(obj);
 
     }

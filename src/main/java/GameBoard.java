@@ -8,7 +8,7 @@ public class GameBoard implements Board {
 
     private List<Slot> slots;
 
-    private Slot [][] board;
+    private Slot [] board;
 
     private final Integer length;
 
@@ -18,23 +18,20 @@ public class GameBoard implements Board {
 
     public GameBoard( Integer length ){
         this.length = length;
-        this.board = new Slot[length][length];
+        this.board = new Slot[length];
         fillBoard();
     }
 
     public void fillBoard(){
-        Arrays.stream(board).forEach(i ->{
-            Arrays.stream(i).forEach(j->{
-                List<Power> gems = new ArrayList<>();
 
-                for (int k = 0; k < random.nextInt(this.MAX_OF_GEMS); k++) {
-                    int pick = random.nextInt( Gems.values().length );
-                    gems.add( GemFactory.buildGem(Gems.values()[pick] ) );
-                }
-
-                j = new Slot(gems);
-            });
-        });
+        for (int i = 0; i <board.length ; i++) {
+            List<Gems> gems = new ArrayList<>();
+            for (int k = 0; k < random.nextInt(this.MAX_OF_GEMS+1); k++) {
+                int pick = random.nextInt( Gems.values().length );
+                gems.add( Gems.values()[pick]  );
+            }
+            board[i] = new Slot(gems);
+        }
 
     }
 
@@ -42,10 +39,8 @@ public class GameBoard implements Board {
 
         String result = "";
         for (int i = 0; i < board.length; i++) {
-            for (int j = 0; j < board[i].length; j++) {
-                result += board[i][j].getGems().size() + "|";
-            }
-            result +="\n";
+                result += "G -" +board[i].getGems().size() +" P -"+ board[i].getCharacters().size()+"|";
+
         }
 
         return result;

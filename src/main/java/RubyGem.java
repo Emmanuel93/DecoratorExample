@@ -4,7 +4,7 @@ public class RubyGem extends AbstractGem {
 
     public RubyGem(){}
 
-    public RubyGem(Item character){
+    public RubyGem(Character character){
         super(character);
     }
 

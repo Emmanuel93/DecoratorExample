@@ -4,7 +4,7 @@ public class ZaphireGem extends AbstractGem {
 
     public ZaphireGem(){}
 
-    public ZaphireGem(Item character){
+    public ZaphireGem(Character character){
         super(character);
 
     }
