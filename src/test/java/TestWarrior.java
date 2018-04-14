@@ -8,7 +8,7 @@ public class TestWarrior {
     private Item warrior;
 
     public TestWarrior(){
-        this.warrior = new Warrior("Emmanuel",4);
+        this.warrior = new Warrior("Emmanuel");
     }
 
     @Test

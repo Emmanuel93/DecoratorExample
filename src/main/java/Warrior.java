@@ -1,8 +1,10 @@
 public class Warrior extends AbstractCharacter {
 
 
-    public Warrior(String name, Integer power){
-       super(name,power);
+    public static final Integer POWER = 4;
+
+    public Warrior(String name){
+       super(name);
     }
 
     @Override
@@ -22,6 +24,6 @@ public class Warrior extends AbstractCharacter {
 
     @Override
     public Integer getPower() {
-        return this.power;
+        return this.POWER;
     }
 }

@@ -4,11 +4,8 @@ public abstract class AbstractCharacter implements Character{
 
     protected String name;
 
-    protected Integer power;
-
-    protected AbstractCharacter(String name, Integer power){
+    protected AbstractCharacter(String name){
         this.name = name;
-        this.power = power;
     }
 
     public abstract void atack(Character character);
