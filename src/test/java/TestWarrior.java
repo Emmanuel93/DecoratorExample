@@ -273,6 +273,16 @@ public class TestWarrior {
     @Test
     public void verifyFillBoard(){
         Board obj = new GameBoard(10);
+
+        Character emmanuel = new Warrior("Emmanuel");
+
+        Character brandon = new Warrior("Brandon");
+
+        Dice dice = Dice.getInstance();
+
+        System.out.println(dice.showNumber());
+
+
         System.out.println(obj);
 
     }
