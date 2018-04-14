@@ -1,11 +1,13 @@
 public class ZaphireGem extends AbstractGem {
 
-    public ZaphireGem(Integer power, Item character){
-        super(power,character);
+    public static final Integer POWER = 3;
+
+    public ZaphireGem(Item character){
+        super(character);
 
     }
     @Override
     public Integer getPower() {
-        return this.power+ this.character.getPower();
+        return this.POWER+ this.character.getPower();
     }
 }

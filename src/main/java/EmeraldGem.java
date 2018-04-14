@@ -1,10 +1,12 @@
 public class EmeraldGem extends AbstractGem{
 
-    public EmeraldGem(Integer power, Item character){
-        super(power,character);
+    public static final Integer POWER = 2;
+
+    public EmeraldGem(Item character){
+        super(character);
     }
     @Override
     public Integer getPower() {
-        return this.power + character.getPower();
+        return this.POWER + character.getPower();
     }
 }

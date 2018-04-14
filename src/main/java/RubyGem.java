@@ -1,11 +1,13 @@
 public class RubyGem extends AbstractGem {
 
-    public RubyGem(Integer power, Item character){
-        super(power, character);
+    public static final Integer POWER = 5;
+
+    public RubyGem(Item character){
+        super(character);
     }
 
     @Override
     public Integer getPower() {
-        return this.power + character.getPower();
+        return this.POWER + character.getPower();
     }
 }
