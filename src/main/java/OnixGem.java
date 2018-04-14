@@ -1,6 +1,8 @@
 public class OnixGem extends AbstractGem {
 
-    public final Integer POWER = 1;
+    public static final Integer POWER = 1;
+
+    public OnixGem(){}
 
     public OnixGem(Item character){
         super(character);

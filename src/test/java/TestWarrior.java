@@ -270,5 +270,12 @@ public class TestWarrior {
         assertTrue( 31 == warrior.getPower());
     }
 
+    @Test
+    public void verifyFillBoard(){
+        Board obj = new GameBoard(5);
+        System.out.println(obj);
+
+    }
+
 
 }

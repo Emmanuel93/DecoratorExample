@@ -4,6 +4,8 @@ public abstract class AbstractCharacter implements Character{
 
     protected String name;
 
+    protected Integer damage;
+
     protected AbstractCharacter(String name){
         this.name = name;
     }

@@ -2,14 +2,16 @@ import java.util.List;
 
 public class Slot {
 
-    private List<Slotable> gameElements;
+    private List<Power> gems;
 
-    public Slot(List<Slotable> gameElements){
-        this.gameElements = gameElements;
+    public Slot(List<Power> gems){
+        this.gems = gems;
     }
 
-    public void addGameElement(Slotable gameElement){
-        this.gameElements.add(gameElement);
+
+    public List<Power> getGems() {
+        return this.gems;
     }
+
 
 }
