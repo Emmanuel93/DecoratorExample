@@ -1,5 +1,9 @@
 import org.junit.Test;
 
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
+
 import static junit.framework.TestCase.assertTrue;
 
 
@@ -270,7 +274,7 @@ public class TestWarrior {
         assertTrue( 31 == warrior.getPower());
     }
 
-    @Test
+    //@Test
     public void verifyFillBoard(){
         GameBoard board = new GameBoard(10);
 
@@ -293,7 +297,111 @@ public class TestWarrior {
         System.out.println(board);
 
 
+
+    }
+
+    //@Test
+    public void verifyTurnBoard(){
+
+        System.out.println();
+        System.out.println("test de turnnos mediante iterador");
+        GameBoard board = new GameBoard(10);
+        Dice dice = Dice.getInstance();
+        Integer Movement = dice.showNumber();
+
+        Character emmanuel = new Warrior("Emmanuel");
+        emmanuel.setDice(dice);
+
+        Character brandon = new Warrior("Brandon");
+        brandon.setDice(dice);
+
+        Character jose = new Warrior("jose");
+        jose.setDice(dice);
+
+        List<Character> characterList = new LinkedList<>();
+        characterList.add(emmanuel);
+        characterList.add(brandon);
+        characterList.add(jose);
+
+        for(int i=1; i<=2; i++) {
+            for (Character it : characterList) {
+
+                boolean isalive = it.isAlive();
+
+                if(isalive==true) {
+
+                    it = board.addCharacter(it, it.showNumberOfDice());
+                    System.out.println(board);
+
+                    System.out.println(it.getName() + " tiene de poder" + it.getPower());
+                    System.out.println(it.getName() + " tiene de daño" + it.getDamage());
+                }
+
+
+
+            }
+        }
+
+
+    }
+
+    @Test
+    public void verifyFight(){
+        GameBoard board = new GameBoard(10);
+
+        Dice dice = Dice.getInstance();
+
+        Character emmanuel = new Warrior("Emmanuel");
+        emmanuel.setDice(dice);
+
+        Character brandon = new Warrior("Brandon");
+
+        Integer Movement = dice.showNumber();
+
+        emmanuel = board.addCharacter(emmanuel,2);
+        brandon = board.addCharacter(brandon,1);
+        System.out.println("Emmanuel tiene de poder"+ emmanuel.getPower());
+        System.out.println("Emmanuel tiene de daño"+ emmanuel.getDamage());
+
+        System.out.println("Brandon tiene de poder"+ brandon.getPower());
+        System.out.println("Brandon tiene de daño"+ brandon.getDamage());
+
+
+        System.out.println("Emanuel pelea directamente con brandon");
+        emmanuel.fight(brandon);
+
+        System.out.println("Emmanuel tiene de poder"+ emmanuel.getPower());
+        System.out.println("Emmanuel tiene de daño"+ emmanuel.getDamage());
+
+        System.out.println("Brandon tiene de poder"+ brandon.getPower());
+        System.out.println("Brandon tiene de daño"+ brandon.getDamage());
+
+        System.out.println("brandon se mueve en donde se encuentra emmanuel");
+        brandon = board.addCharacter(brandon,2);
+
+        System.out.println("Emmanuel tiene de poder"+ emmanuel.getPower());
+        System.out.println("Emmanuel tiene de daño"+ emmanuel.getDamage());
+
+        System.out.println("Brandon tiene de poder"+ brandon.getPower());
+        System.out.println("Brandon tiene de daño"+ brandon.getDamage());
+
+
+       System.out.println(brandon.getName()+" esta vivo "+brandon.isAlive());
+       System.out.println(emmanuel.getName()+" esta vivo "+emmanuel.isAlive());
+
+
+
+
+
+
     }
 
 
-}
+
+
+
+
+    }
+
+
+
