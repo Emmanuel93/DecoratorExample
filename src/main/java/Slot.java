@@ -16,4 +16,14 @@ public class Slot {
     public void setGameElements(List<Slotable> gameElements) {
         this.gameElements = gameElements;
     }
+
+    public void addSlotable(Slotable item){
+
+        if(item instanceof Character){
+
+
+        }
+
+    }
+
 }
