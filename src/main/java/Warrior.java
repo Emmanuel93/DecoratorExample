@@ -22,4 +22,15 @@ public class Warrior extends AbstractCharacter {
     public Integer getPower() {
         return this.POWER;
     }
+
+
+    @Override
+    public boolean isAlive() {
+        if(this.getPower()<=this.getDamage()){
+
+            return false;
+        }else
+
+        return super.isAlive();
+    }
 }

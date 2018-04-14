@@ -27,6 +27,7 @@ public class Slot {
         Character characterStronger = getStrongerCharacter();
 
         if(characterStronger != null){
+            System.out.println(character.getName()+" y "+characterStronger.getName()+ " estan peleando");
             character.fight(characterStronger);
         }
 

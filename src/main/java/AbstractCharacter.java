@@ -1,6 +1,6 @@
 public abstract class AbstractCharacter implements Character{
 
-    protected boolean isAlive = false;
+    protected boolean isAlive = true;
 
     protected String name;
 
