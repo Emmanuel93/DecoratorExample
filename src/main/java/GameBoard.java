@@ -1,3 +1,5 @@
+import com.sun.tools.corba.se.idl.InterfaceGen;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -42,7 +44,6 @@ public class GameBoard {
             return aux;
         }catch (ArrayIndexOutOfBoundsException exception){
             character.setWinner(true);
-            System.out.println("el jugador "+character.getName()+" salio del tablero"+", es el ganador");
         }
 
         return character;
@@ -53,36 +54,21 @@ public class GameBoard {
         String result = "";
         for (int i = 0; i < board.length; i++) {
                 result += "G" +board[i].getGems().size() +" P"+ board[i].getCharacters().size()+"|";
-
         }
 
         return result;
     }
-
 
     public void beginGame(List<Character> characters){
-
-        while(!existWinner()){
-            for (Character character: characters){
+        mainLoop:
+        while (true){
+            for (Character character: characters) {
                 Integer movement = character.showNumberOfDice();
-                this.addCharacter(character,movement);
+                this.addCharacter(character, movement);
+                if(character.isWinner())
+                    break mainLoop;
             }
         }
-
     }
-
-    public boolean existWinner(){
-       boolean result = false;
-
-        for (Slot slot: board){
-            if(slot.existWinner());
-               return true;
-        }
-
-        return result;
-    }
-
-
-
 
 }
