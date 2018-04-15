@@ -65,8 +65,11 @@ public class GameBoard {
             for (Character character: characters) {
                 Integer movement = character.showNumberOfDice();
                 this.addCharacter(character, movement);
-                if(character.isWinner())
+                if(character.isWinner()){
+                    System.out.println(character.getName()+" es el ganador con poder de "+character.getPower());
                     break mainLoop;
+                }
+
             }
         }
     }
