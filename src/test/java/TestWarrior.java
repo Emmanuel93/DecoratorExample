@@ -304,7 +304,7 @@ public class TestWarrior {
     public void verifyTurnBoard(){
 
         System.out.println();
-        System.out.println("test de turnnos mediante iterador");
+        System.out.println("test de turnos mediante iterador");
         GameBoard board = new GameBoard(10);
         Dice dice = Dice.getInstance();
         Integer Movement = dice.showNumber();
