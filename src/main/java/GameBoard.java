@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 
@@ -40,9 +41,8 @@ public class GameBoard {
             Character aux = this.board[movement - 1].addCharacter(character);
             return aux;
         }catch (ArrayIndexOutOfBoundsException exception){
-
+            character.setWinner(true);
             System.out.println("el jugador "+character.getName()+" salio del tablero"+", es el ganador");
-            System.exit(0);
         }
 
         return character;
@@ -59,6 +59,28 @@ public class GameBoard {
         return result;
     }
 
+
+    public void beginGame(List<Character> characters){
+
+        while(!existWinner()){
+            for (Character character: characters){
+                Integer movement = character.showNumberOfDice();
+                this.addCharacter(character,movement);
+            }
+        }
+
+    }
+
+    public boolean existWinner(){
+       boolean result = false;
+
+        for (Slot slot: board){
+            if(slot.existWinner());
+               return true;
+        }
+
+        return result;
+    }
 
 
 

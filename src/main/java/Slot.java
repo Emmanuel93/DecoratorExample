@@ -10,7 +10,6 @@ public class Slot {
         this.gems = gems;
     }
 
-
     public List<Gems> getGems() {
         return this.gems;
     }
@@ -19,6 +18,13 @@ public class Slot {
         return this.characters.stream()
                         .max(Comparator.comparing(Character::getPower))
                         .orElse(null);
+    }
+
+    public boolean existWinner(){
+       return this.characters
+               .stream()
+               .max(Comparator.comparing(character -> character.isWinner()))
+               .get().isWinner();
     }
 
     public Character addCharacter(Character character){

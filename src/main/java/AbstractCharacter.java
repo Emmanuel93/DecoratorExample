@@ -6,7 +6,17 @@ public abstract class AbstractCharacter implements Character{
 
     protected Integer damage=0;
 
+    protected boolean isWinner=false;
+
     protected Dice dice;
+
+    public void setWinner(boolean winner) {
+        this.isWinner = winner;
+    }
+
+    public boolean isWinner() {
+        return this.isWinner;
+    }
 
     public void setDamage(Integer damage){
         this.damage = damage;

@@ -48,4 +48,12 @@ public abstract class AbstractGem implements Character{
         return this.character.showNumberOfDice();
     }
 
+    public void setWinner(boolean winner) {
+        this.character.setWinner(winner);
+    }
+
+    public boolean isWinner() {
+        return this.character.isWinner();
+    }
+
 }

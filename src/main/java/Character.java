@@ -23,4 +23,8 @@ public interface Character{
 
     public Integer getDamage();
 
+    public void setWinner(boolean isWinner);
+
+    public boolean isWinner();
+
 }
