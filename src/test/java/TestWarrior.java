@@ -1,6 +1,4 @@
 import org.junit.Test;
-
-import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -274,7 +272,7 @@ public class TestWarrior {
         assertTrue( 31 == warrior.getPower());
     }
 
-    //@Test
+    @Test
     public void verifyFillBoard(){
         GameBoard board = new GameBoard(10);
 
@@ -300,7 +298,7 @@ public class TestWarrior {
 
     }
 
-    //@Test
+    @Test
     public void verifyTurnBoard(){
 
         System.out.println();
@@ -388,11 +386,6 @@ public class TestWarrior {
 
        System.out.println(brandon.getName()+" esta vivo "+brandon.isAlive());
        System.out.println(emmanuel.getName()+" esta vivo "+emmanuel.isAlive());
-
-
-
-
-
 
     }
 

@@ -19,7 +19,7 @@ public class Dice {
     }
 
     public Integer showNumber(){
-        return random.nextInt(NUM_OF_FACES_OF_DICE) +1;
+        return random.nextInt(NUM_OF_FACES_OF_DICE) +2;
     }
 
 }

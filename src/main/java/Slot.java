@@ -28,16 +28,28 @@ public class Slot {
     }
 
     public Character addCharacter(Character character){
+
+
         character = takeAGems(character);
 
         Character characterStronger = getStrongerCharacter();
 
+
+
+
+        System.out.println(character.getName() + " tiene de poder: " + character.getPower());
+
+
         if(characterStronger != null){
             System.out.println(character.getName()+" y "+characterStronger.getName()+ " estan peleando");
+            System.out.println(characterStronger.getName() + " tiene de poder: " + characterStronger.getPower());
+
+
             character.fight(characterStronger);
         }
 
         this.characters.add(character);
+
 
         return character;
 

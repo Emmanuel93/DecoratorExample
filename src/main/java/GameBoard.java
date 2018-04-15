@@ -1,4 +1,3 @@
-import com.sun.tools.corba.se.idl.InterfaceGen;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -39,12 +38,29 @@ public class GameBoard {
 
     public Character addCharacter(Character character, Integer movement){
 
+        if(character.isAlive()==false){
+            System.out.println(character.getName()+" no puede jugar, esta muerto");
+
+        }
+
+
         try {
+
             Integer lastIndex = this.getIndexOfPlayerByName(character.getName());
+            System.out.println(character.getName() + " estaba en el slot: " + (lastIndex));
+            System.out.println("ahora se encuentra en el slot: " + (lastIndex+movement-1));
             Character aux = this.board[lastIndex +(movement - 1)].addCharacter(character);
+
+            System.out.println();
+            System.out.println(toString());
+            System.out.println();
+
+            ClearPlayerByName(character.getName(),lastIndex);
             return aux;
+
         }catch (ArrayIndexOutOfBoundsException exception){
             character.setWinner(true);
+
         }
 
         return character;
@@ -56,35 +72,81 @@ public class GameBoard {
                 if(character.getName().equals(name)){
                     return i;
                 }
+
             }
 
         }
         return 0;
     }
 
+    public void ClearPlayerByName(String name, int i){
+        List<Character> found = new ArrayList<>();
+
+            for (Character character : this.board[i].getCharacters()){
+                if(character.getName().equals(name)){
+                   found.add(character);
+
+
+                }
+            }
+
+       this.board[i].getCharacters().removeAll(found);
+
+
+    }
+
+
+
+
     public String toString(){
 
         String result = "";
         for (int i = 0; i < board.length; i++) {
-                result += "G" +board[i].getGems().size() +" P"+ board[i].getCharacters().size()+"|";
+                result +="Slot "+i+ ": G:" +board[i].getGems().size() +" P:"+ board[i].getCharacters().size()+"|\n";
         }
 
         return result;
     }
 
+
     public void beginGame(List<Character> characters){
+        Integer deathcount = 0;
         mainLoop:
         while (true){
             for (Character character: characters) {
-                Integer movement = character.showNumberOfDice();
-                this.addCharacter(character, movement);
+
+                if(character.isAlive()==false){
+                    deathcount = deathcount + 1;
+
+                }
+
+                if(character.isAlive()==true){
+
+                    if(deathcount==(characters.size()-1)){
+                        System.out.println("los demas jugadores estan fuera del juego");
+                        System.out.println(character.getName()+" es el ganador del juego FELICIDADES!");
+                        break mainLoop;
+                    }
+
+
+                    Integer movement = character.showNumberOfDice();
+                    character=this.addCharacter(character, movement);
+
+
+                }
+
+
                 if(character.isWinner()){
-                    System.out.println(character.getName()+" es el ganador con poder de "+character.getPower());
+                    System.out.println(character.getName()+" es el ganador del juego FELICIDADES!");
                     break mainLoop;
                 }
 
             }
         }
     }
+
+
+
+
 
 }

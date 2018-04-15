@@ -7,7 +7,7 @@ public class Aplication {
     public static void main(String[] args){
 
 
-        GameBoard board = new GameBoard(10);
+        GameBoard board = new GameBoard(20);
 
         Dice dice = Dice.getInstance();
 
@@ -20,6 +20,10 @@ public class Aplication {
         Character brandon = new Warrior("Brandon");
         brandon.setDice(dice);
         characters.add(brandon);
+
+        Character jose = new Warrior("Jose");
+        jose.setDice(dice);
+        characters.add(jose);
 
         board.beginGame(characters);
     }
