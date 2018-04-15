@@ -35,9 +35,17 @@ public class GameBoard {
     }
 
     public Character addCharacter(Character character, Integer movement){
-        Character aux =  this.board[movement-1].addCharacter(character);
-        return aux;
 
+        try {
+            Character aux = this.board[movement - 1].addCharacter(character);
+            return aux;
+        }catch (ArrayIndexOutOfBoundsException exception){
+
+            System.out.println("el jugador "+character.getName()+" salio del tablero"+", es el ganador");
+            System.exit(0);
+        }
+
+        return character;
     }
 
     public String toString(){
