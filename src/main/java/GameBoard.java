@@ -40,13 +40,26 @@ public class GameBoard {
     public Character addCharacter(Character character, Integer movement){
 
         try {
-            Character aux = this.board[movement - 1].addCharacter(character);
+            Integer lastIndex = this.getIndexOfPlayerByName(character.getName());
+            Character aux = this.board[lastIndex +(movement - 1)].addCharacter(character);
             return aux;
         }catch (ArrayIndexOutOfBoundsException exception){
             character.setWinner(true);
         }
 
         return character;
+    }
+
+    public Integer getIndexOfPlayerByName(String name){
+        for (int i = 0; i <this.board.length ; i++) {
+            for (Character character : this.board[i].getCharacters()){
+                if(character.getName().equals(name)){
+                    return i;
+                }
+            }
+
+        }
+        return 0;
     }
 
     public String toString(){
