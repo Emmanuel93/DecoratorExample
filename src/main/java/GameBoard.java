@@ -38,21 +38,21 @@ public class GameBoard {
 
     public Character addCharacter(Character character, Integer movement){
 
-        if(character.isAlive()==false){
+        if(!character.isAlive())
             System.out.println(character.getName()+" no puede jugar, esta muerto");
-
-        }
-
 
         try {
 
             Integer lastIndex = this.getIndexOfPlayerByName(character.getName());
-            System.out.println(character.getName() + " estaba en el slot: " + (lastIndex));
-            System.out.println();
-            System.out.println("ahora se encuentra en el slot: " + (lastIndex+movement-1));
-            Character aux = this.board[lastIndex +(movement - 1)].addCharacter(character);
 
-            ClearPlayerByName(character.getName(),lastIndex);
+            if(lastIndex>-1)
+                System.out.println(character.getName() + " estaba en el slot: " + (lastIndex+1));
+            System.out.println("Dado " + movement);
+            System.out.println("ahora se encuentra en el slot: " + ((lastIndex+movement)+1));
+            Character aux = this.board[lastIndex +movement].addCharacter(character);
+
+            if(lastIndex > -1)
+                ClearPlayerByName(character.getName(),lastIndex);
 
 
 
@@ -81,7 +81,7 @@ public class GameBoard {
             }
 
         }
-        return 0;
+        return -1;
     }
 
     public void ClearPlayerByName(String name, int i){
@@ -107,7 +107,7 @@ public class GameBoard {
 
         String result = "";
         for (int i = 0; i < board.length; i++) {
-                result +="Slot "+(i)+ ": G:" +board[i].getGems().size() +" P:"+ board[i].getCharacters().size()+"|\n";
+                result +="Slot "+(i+1)+ ": G:" +board[i].getGems().size() +" P:"+ board[i].getCharacters().size()+"|\n";
         }
 
         return result;
@@ -116,6 +116,8 @@ public class GameBoard {
 
     public void beginGame(List<Character> characters){
         Integer deathcount = 0;
+        System.out.println("Inicial");
+        System.out.println(toString());
         mainLoop:
         while (true){
 
@@ -123,19 +125,7 @@ public class GameBoard {
 
             for (Character character: characters) {
 
-                if(character.isAlive()==false){
-                    deathcount = deathcount + 1;
-
-                }
-
-                if(character.isAlive()==true){
-
-                    if(deathcount==(characters.size()-1)){
-                        System.out.println("los demas jugadores estan fuera del juego");
-                        System.out.println(character.getName()+" es el ganador del juego FELICIDADES!");
-                        break mainLoop;
-                    }
-
+                if(character.isAlive()){
 
                     Integer movement = character.showNumberOfDice();
                     System.out.println(character.getName() + " tiene de poder: " + character.getPower());
@@ -147,6 +137,8 @@ public class GameBoard {
                     System.out.println();
 
 
+                }else{
+                    deathcount = deathcount + 1;
                 }
 
 

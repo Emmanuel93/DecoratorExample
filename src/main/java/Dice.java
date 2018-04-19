@@ -6,7 +6,7 @@ public class Dice {
 
     private static Dice dice;
 
-    private static Integer NUM_OF_FACES_OF_DICE = 3;
+    private static Integer NUM_OF_FACES_OF_DICE = 2;
 
     public static Dice getInstance(){
         if(dice == null)
@@ -19,7 +19,7 @@ public class Dice {
     }
 
     public Integer showNumber(){
-        return random.nextInt(NUM_OF_FACES_OF_DICE) +2;
+        return random.nextInt(NUM_OF_FACES_OF_DICE) +1;
     }
 
 }

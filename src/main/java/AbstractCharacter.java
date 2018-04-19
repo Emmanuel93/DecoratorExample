@@ -26,6 +26,10 @@ public abstract class AbstractCharacter implements Character{
         return this.damage;
     }
 
+    public void setAlive(boolean isAlive){
+        this.isAlive=isAlive;
+    }
+
     @Override
     public String getName() {
         return name;
@@ -42,8 +46,6 @@ public abstract class AbstractCharacter implements Character{
     protected AbstractCharacter(String name){
         this.name = name;
     }
-
-    public abstract void fight(Character character);
 
     public boolean isAlive(){
         return this.isAlive;

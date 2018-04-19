@@ -7,7 +7,7 @@ public class Aplication {
     public static void main(String[] args){
 
 
-        GameBoard board = new GameBoard(20);
+        GameBoard board = new GameBoard(10);
 
         Dice dice = Dice.getInstance();
 

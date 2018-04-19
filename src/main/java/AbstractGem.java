@@ -26,14 +26,13 @@ public abstract class AbstractGem implements Character{
        return character.getName();
     }
 
-    public void fight(Character anotherCharacter){
-        this.character.fight(anotherCharacter);
-
-    };
-
     @Override
     public Integer getDamage() {
         return character.getDamage();
+    }
+
+    public void setAlive(boolean isAlive){
+        this.character.setAlive(isAlive);
     }
 
     public boolean isAlive(){

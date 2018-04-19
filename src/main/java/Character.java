@@ -7,9 +7,9 @@
 
 public interface Character{
 
-    public void fight(Character character);
-
     public boolean isAlive();
+
+    public void setAlive(boolean isAlive);
 
     public Integer getPower();
 

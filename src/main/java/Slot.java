@@ -27,6 +27,31 @@ public class Slot {
                .get().isWinner();
     }
 
+    public void fight(Character character1,Character character2) {
+        if(character1.getPower()> character2.getPower()){
+            System.out.println(character1.getName()+" ha ganado");
+            character2.setDamage(character1.getPower()-character2.getPower());
+            System.out.println(character2.getName()+" ha recibido "+character2.getDamage()+" de daño y queda con poder"+character2.getPower());
+            if(character2.getPower()<1)
+                character2.setAlive(false);
+        }
+
+        if(character2.getPower() > character1.getPower()){
+            System.out.println(character1.getName()+" ha perdido");
+            character1.setDamage(character2.getPower()-character1.getPower());
+            System.out.println(character1.getName()+" ha recibido "+character1.getDamage()+" de daño y queda con poder"+character1.getPower());
+            if(character1.getPower()<1)
+                character1.setAlive(false);
+
+        }
+
+        if(character2.getPower() == character1.getPower()){
+            System.out.println("hay empate");
+        }
+
+
+    }
+
     public Character addCharacter(Character character){
 
 
@@ -34,16 +59,13 @@ public class Slot {
 
         Character characterStronger = getStrongerCharacter();
 
-
-
         if(characterStronger != null){
 
             System.out.println(character.getName()+" y "+characterStronger.getName()+ " estan peleando");
 
             System.out.println(characterStronger.getName() + " tiene de poder: " + characterStronger.getPower());
 
-
-            character.fight(characterStronger);
+            this.fight(character,characterStronger);
         }
 
         this.characters.add(character);
