@@ -36,12 +36,10 @@ public class Slot {
 
 
 
-
-        System.out.println(character.getName() + " tiene de poder: " + character.getPower());
-
-
         if(characterStronger != null){
+
             System.out.println(character.getName()+" y "+characterStronger.getName()+ " estan peleando");
+
             System.out.println(characterStronger.getName() + " tiene de poder: " + characterStronger.getPower());
 
 

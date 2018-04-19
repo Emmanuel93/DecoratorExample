@@ -48,14 +48,19 @@ public class GameBoard {
 
             Integer lastIndex = this.getIndexOfPlayerByName(character.getName());
             System.out.println(character.getName() + " estaba en el slot: " + (lastIndex));
+            System.out.println();
             System.out.println("ahora se encuentra en el slot: " + (lastIndex+movement-1));
             Character aux = this.board[lastIndex +(movement - 1)].addCharacter(character);
 
-            System.out.println();
-            System.out.println(toString());
-            System.out.println();
-
             ClearPlayerByName(character.getName(),lastIndex);
+
+
+
+            if ((lastIndex+movement-1)==20){
+                character.setWinner(true);
+            }
+
+
             return aux;
 
         }catch (ArrayIndexOutOfBoundsException exception){
@@ -102,7 +107,7 @@ public class GameBoard {
 
         String result = "";
         for (int i = 0; i < board.length; i++) {
-                result +="Slot "+i+ ": G:" +board[i].getGems().size() +" P:"+ board[i].getCharacters().size()+"|\n";
+                result +="Slot "+(i)+ ": G:" +board[i].getGems().size() +" P:"+ board[i].getCharacters().size()+"|\n";
         }
 
         return result;
@@ -113,6 +118,9 @@ public class GameBoard {
         Integer deathcount = 0;
         mainLoop:
         while (true){
+
+            List<Character> powereado = new ArrayList<>();
+
             for (Character character: characters) {
 
                 if(character.isAlive()==false){
@@ -130,7 +138,13 @@ public class GameBoard {
 
 
                     Integer movement = character.showNumberOfDice();
+                    System.out.println(character.getName() + " tiene de poder: " + character.getPower());
                     character=this.addCharacter(character, movement);
+                    powereado.add(character);
+                    System.out.println(character.getName() + " tiene de poder: " + character.getPower());
+                    System.out.println();
+                    System.out.println(toString());
+                    System.out.println();
 
 
                 }
@@ -142,6 +156,7 @@ public class GameBoard {
                 }
 
             }
+            characters=powereado;
         }
     }
 

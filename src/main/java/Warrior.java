@@ -11,6 +11,8 @@ public class Warrior extends AbstractCharacter {
 
     @Override
     public void fight(Character character) {
+        System.out.println(character.getName()+"=>"+character.getPower());
+        System.out.println(this.getName()+"=>"+this.getPower());
         if(this.getPower()> character.getPower()){
             System.out.println(this.name+" ha ganado");
             character.setDamage(this.getPower()-character.getPower());
@@ -32,7 +34,10 @@ public class Warrior extends AbstractCharacter {
 
     @Override
     public Integer getPower() {
-        return this.POWER;
+       Integer powerAux = this.POWER - getDamage();
+       if( powerAux < 0)
+           return 0;
+       return powerAux;
     }
 
 
