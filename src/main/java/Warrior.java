@@ -6,15 +6,7 @@ public class Warrior extends AbstractCharacter {
     private Dice dice;
 
     public Warrior(String name){
-       super(name);
-    }
-
-    @Override
-    public Integer getPower() {
-       Integer powerAux = this.POWER - getDamage();
-       if( powerAux < 0)
-           return 0;
-       return powerAux;
+       super(name,POWER);
     }
 
 }

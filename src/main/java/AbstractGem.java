@@ -2,19 +2,24 @@ public abstract class AbstractGem implements Character{
 
     protected Character character;
 
+    protected Integer power;
+
     protected AbstractGem(){
 
     }
 
-    protected AbstractGem(Character character){
+    protected AbstractGem(Character character,Integer power){
         this.character = character;
+        this.power = power;
     }
 
     public void setDamage(Integer damage){
         character.setDamage(damage);
     }
 
-    public abstract Integer getPower();
+    public Integer getPower(){
+        return (character.getPower() + this.power)+this.getDamage();
+    }
 
     @Override
     public String toString() {

@@ -5,11 +5,7 @@ public class RubyGem extends AbstractGem {
     public RubyGem(){}
 
     public RubyGem(Character character){
-        super(character);
+        super(character,POWER);
     }
 
-    @Override
-    public Integer getPower() {
-        return (this.POWER+ this.character.getPower())-getDamage();
-    }
 }

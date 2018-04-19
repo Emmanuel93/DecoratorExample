@@ -5,11 +5,8 @@ public class OnixGem extends AbstractGem {
     public OnixGem(){}
 
     public OnixGem(Character character){
-        super(character);
+        super(character,POWER);
     }
 
-    @Override
-    public Integer getPower() {
-        return (this.POWER+ this.character.getPower())-getDamage();
-    }
+
 }

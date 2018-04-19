@@ -1,14 +1,11 @@
-public class EmeraldGem extends AbstractGem{
+public class EmeraldGem extends AbstractGem {
 
     public static final Integer POWER = 2;
 
-    public EmeraldGem(){}
-
-    public EmeraldGem(Character character){
-        super(character);
+    public EmeraldGem() {
     }
-    @Override
-    public Integer getPower() {
-        return (this.POWER+ this.character.getPower())-getDamage();
+
+    public EmeraldGem(Character character) {
+        super(character, POWER);
     }
 }

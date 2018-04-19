@@ -6,7 +6,7 @@ public class Dice {
 
     private static Dice dice;
 
-    private static Integer NUM_OF_FACES_OF_DICE = 2;
+    private static Integer NUM_OF_FACES_OF_DICE = 3;
 
     public static Dice getInstance(){
         if(dice == null)

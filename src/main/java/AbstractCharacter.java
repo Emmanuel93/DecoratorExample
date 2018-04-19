@@ -10,6 +10,8 @@ public abstract class AbstractCharacter implements Character{
 
     protected Dice dice;
 
+    protected Integer power;
+
     public void setWinner(boolean winner) {
         this.isWinner = winner;
     }
@@ -43,8 +45,17 @@ public abstract class AbstractCharacter implements Character{
         return this.dice.showNumber();
     }
 
-    protected AbstractCharacter(String name){
+    protected AbstractCharacter(String name, Integer power){
         this.name = name;
+        this.power = power;
+    }
+
+    @Override
+    public Integer getPower() {
+        Integer powerAux = this.power - getDamage();
+        if( powerAux < 0)
+            return 0;
+        return powerAux;
     }
 
     public boolean isAlive(){

@@ -342,59 +342,7 @@ public class TestWarrior {
 
 
     }
-
-    @Test
-    public void verifyFight(){
-        GameBoard board = new GameBoard(10);
-
-        Dice dice = Dice.getInstance();
-
-        Character emmanuel = new Warrior("Emmanuel");
-        emmanuel.setDice(dice);
-
-        Character brandon = new Warrior("Brandon");
-
-        Integer Movement = dice.showNumber();
-
-        emmanuel = board.addCharacter(emmanuel,2);
-        brandon = board.addCharacter(brandon,1);
-        System.out.println("Emmanuel tiene de poder"+ emmanuel.getPower());
-        System.out.println("Emmanuel tiene de daño"+ emmanuel.getDamage());
-
-        System.out.println("Brandon tiene de poder"+ brandon.getPower());
-        System.out.println("Brandon tiene de daño"+ brandon.getDamage());
-
-
-        System.out.println("Emanuel pelea directamente con brandon");
-        emmanuel.fight(brandon);
-
-        System.out.println("Emmanuel tiene de poder"+ emmanuel.getPower());
-        System.out.println("Emmanuel tiene de daño"+ emmanuel.getDamage());
-
-        System.out.println("Brandon tiene de poder"+ brandon.getPower());
-        System.out.println("Brandon tiene de daño"+ brandon.getDamage());
-
-        System.out.println("brandon se mueve en donde se encuentra emmanuel");
-        brandon = board.addCharacter(brandon,2);
-
-        System.out.println("Emmanuel tiene de poder"+ emmanuel.getPower());
-        System.out.println("Emmanuel tiene de daño"+ emmanuel.getDamage());
-
-        System.out.println("Brandon tiene de poder"+ brandon.getPower());
-        System.out.println("Brandon tiene de daño"+ brandon.getDamage());
-
-
-       System.out.println(brandon.getName()+" esta vivo "+brandon.isAlive());
-       System.out.println(emmanuel.getName()+" esta vivo "+emmanuel.isAlive());
-
-    }
-
-
-
-
-
-
-    }
+}
 
 
 
